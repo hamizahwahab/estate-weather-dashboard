@@ -1,0 +1,61 @@
+{
+  "name": "estate-weather-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "set NEXT_PUBLIC_API_URL=http://localhost:8003 && next build",
+    "lint": "eslint",
+    "electron:dev": "concurrently \"set NEXT_PUBLIC_API_URL=http://localhost:8003 && npm run dev\" \"wait-on http://localhost:3002 && electron . --dev\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:start": "electron ."
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sql.js": "^1.12.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/sql.js": "^1.4.11",
+    "concurrently": "^9.2.1",
+    "electron": "^34.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wait-on": "^9.0.10"
+  },
+  "build": {
+    "appId": "com.aeros-geotech.estate-weather-dashboard",
+    "productName": "Estate Weather Dashboard",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/sql.js/dist/sql-wasm.wasm",
+        "to": "sql-wasm.wasm"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

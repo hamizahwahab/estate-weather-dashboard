@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-base: #1a1a1a;
+  --color-bg-panel: #1e1e1e;
+  --color-bg-card: #242424;
+  --color-bg-inset: #1a1a1a;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-accent-blue: #38bdf8;
+  --color-accent-green: #4ade80;
+  --color-accent-red: #f87171;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* ─── Light responsiveness ─── */
+@media (max-width: 1400px) {
+  .dashboard-sidebar { width: 280px !important; }
+  .estate-block { padding: 12px 12px 10px !important; }
+  .day-grid { gap: 10px !important; }
+}
+
+@media (max-width: 1100px) {
+  .dashboard-sidebar { width: 240px !important; }
+  .estate-block { padding: 10px 10px 8px !important; }
+  .estate-name { font-size: 0.8rem !important; margin-bottom: 8px !important; }
+  .day-grid { gap: 8px !important; }
+  .day-card { padding: 6px 8px !important; }
+  .day-temp span { font-size: 1.1rem !important; }
+  .day-temp i { font-size: 0.95rem !important; }
+  .day-badge { font-size: 0.55rem !important; padding: 2px 8px !important; }
+  .hourly-wrap { padding: 6px 4px !important; gap: 4px !important; }
+  .h-time { font-size: 0.5rem !important; }
+  .h-icon { font-size: 0.7rem !important; }
+  .h-temp { font-size: 0.6rem !important; }
+  .card-footer { font-size: 0.65rem !important; }
+  .clock-item { padding: 8px 12px !important; gap: 10px !important; }
+  .clock-arrow { width: 30px !important; height: 30px !important; font-size: 0.9rem !important; }
+  .clock-team, .clock-time { font-size: 0.8rem !important; }
+  .clock-loc { font-size: 0.65rem !important; }
+}
